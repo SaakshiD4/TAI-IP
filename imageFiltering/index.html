@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Filtering</title>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -10px;
+        }
+
+        .gallery-item {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            margin-top: 2px;
+            overflow-x: auto;
+
+        }
+
+        .gallery-category {
+            display: flex;
+            flex-wrap: wrap;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            margin-top: 2px;
+            padding-top: 4px;
+
+            margin-bottom: 4px;
+        }
+
+        .gallery-category button {
+            margin-right: 10px;
+        }
+
+        .filters {
+            margin-bottom: 8px;
+            padding-left: 40%;
+            size: 200px;
+            height: 50px;
+            width: 50;
+            padding-top: 4px;
+
+        }
+
+        .h1 {
+            text-align: center;
+            font-size: small;
+            left-margin: 300px;
+            left-padding: 200px;
+            -ms-flex-align: center;
+
+            box-sizing: border-box;
+            border: 2px solid blue;
+            height: 50px;
+            width: 90px;
+            margin-top: 2%;
+        }
+
+        .k {
+            margin-top: 1px;
+        }
+
+        /* .h1 {
+            font-size: larger;
+            text-align: center;
+            margin-left: 50%;
+            margin-bottom: 80%;
+
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="filters">
+        <button data-filter="all">All</button>
+        <button data-filter="nature">Nature</button>
+        <button data-filter="city">City</button>
+        <button data-filter="animals">Animals</button>
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-category nature"><br>
+            <!-- <h1>Nature</h1> -->
+
+
+
+            <div class="gallery-item" data-category="nature">
+                <div class="h1">
+                    <h1>Nature</h1><br>
+                </div>
+
+
+                <img class="k"
+                    src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+
+            </div><br>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/old-stone-pot-with-moss-ferns-forest_1046359-3121.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 2">
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+            </div>
+            <div class="gallery-item" data-category="nature">
+                <img src="https://img.freepik.com/premium-photo/summer-landscape-sunny-day-park-garden-warsaw-poland-path-tree_1115583-20014.jpg?size=626&ext=jpg&ga=GA1.1.809196684.1711182148&semt=sph"
+                    alt="Nature Image 1">
+            </div>
+
+        </div>
+
+        <div class="gallery-category city">
+            <div class="gallery-item" data-category="city">
+                <img src="data:image/jpeg;base64,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"
+                    alt="City Image 1">
+            </div>
+            <div class="gallery-item" data-category="city">
+                <img src="https://images.pexels.com/photos/773471/pexels-photo-773471.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="City Image 2">
+            </div>
+            <div class="gallery-item" data-category="city">
+                <img src="https://images.pexels.com/photos/1604141/pexels-photo-1604141.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="City Image 1">
+            </div>
+            <div class="gallery-item" data-category="city">
+                <img src="https://images.pexels.com/photos/409127/pexels-photo-409127.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="City Image 1">
+            </div>
+            <div class="gallery-item" data-category="city">
+                <img src="https://images.pexels.com/photos/1374377/pexels-photo-1374377.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="City Image 1">
+            </div>
+            <div class="gallery-item" data-category="city">
+                <img src="https://images.pexels.com/photos/7613/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=400"
+                    alt="City Image 1">
+            </div>
+
+        </div>
+
+        <div class="gallery-category animals"><br>
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="Animal Image 1">
+            </div>
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.pexels.com/photos/1369068/pexels-photo-1369068.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="flower">
+            </div>
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.pexels.com/photos/39517/rose-flower-blossom-bloom-39517.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="Animal Image 2">
+            </div>
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.pexels.com/photos/696996/pexels-photo-696996.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="Animal Image 2">
+            </div>
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.pexels.com/photos/67857/daisy-flower-spring-marguerite-67857.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="Animal Image 2">
+            </div>
+            <div class="gallery-item" data-category="animals">
+                <img src="https://images.pexels.com/photos/992734/pexels-photo-992734.jpeg?auto=compress&cs=tinysrgb&w=400"
+                    alt="Animal Image 2">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const filters = document.querySelectorAll('.filters button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filters.forEach(filter => {
+                filter.addEventListener('click', function () {
+                    const category = filter.getAttribute('data-filter');
+                    galleryItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (category === 'all' || category === itemCategory) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
